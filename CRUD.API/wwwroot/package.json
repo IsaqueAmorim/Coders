@@ -1,0 +1,14 @@
+{
+  "name": "JogadoresUI",
+  "private": true,
+  "version": "1.0.0",
+  "author": "SAP SE",
+  "description": "UI5 JogadoresUI App",
+  "scripts": {
+    "start": "ui5 serve",
+    "build": "ui5 build"
+  },
+  "devDependencies": {
+    "@ui5/cli": "^2.14.19"
+  }
+}

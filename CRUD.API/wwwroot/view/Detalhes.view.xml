@@ -1,0 +1,50 @@
+<mvc:View xmlns:form="sap.ui.layout.form" xmlns:layout="sap.ui.layout" xmlns:uxap="sap.uxap" 
+xmlns:mvc="sap.ui.core.mvc"
+controllerName="sap.ui.api.jogadores.controller.Detalhes"
+xmlns="sap.m" 
+>
+    
+    <Page binding="{/jogador}"  >
+        <headerContent>
+            <Button press=".aoClicarVoltar"  text="Voltar" icon="sap-icon://nav-back" />
+            <ToolbarSpacer />
+            <Title text="{i18n>Detalhes.titulo}" textAlign="Initial"></Title>
+            <ToolbarSpacer />
+            <Button text="{i18n>page.Editar}" icon="sap-icon://edit" type="Attention"/>
+            <Button type="Negative" icon="sap-icon://delete" text="{i18n>page.Deletar}"/>
+        </headerContent>
+
+       <VBox >
+            <form:SimpleForm class="" layout="ResponsiveLayout" editable="false" width="60%" >
+                <form:content  >
+                    <Label design="Bold" vAlign="Middle" text="{i18n>colunaId}"/>
+                    <Input editable="false" value="{id}"/>
+                    <Label design="Bold" vAlign="Middle" text="{i18n>colunaNome}"/>
+                    <Input editable="false" value="{nome}"/>
+                    <Label design="Bold" text="{i18n>colunaSobrenome}"/>
+                    <Input editable="false" value="{sobrenome}"/>
+                    <Label design="Bold"  text="{i18n>Apelido}"/>
+                    <Input editable="false" value="{apelido}"/>
+                    <Label design="Bold"  text="{i18n>colunaEmail}"/>
+                    <Input editable="false" value="{email}"/>
+                    <Label design="Bold"  text="{i18n>colunaElo}"/>
+                    <Input editable="false" value="{path: 'elo',
+                    formatter:'.formatter.eloLegenda'}"/>
+
+                    <Label design="Bold"  text="{i18n>colunaDataNascimento}"/>
+                    <Input editable="false" value="{
+                        path:'dataNascimento',
+                        type:'sap.ui.model.type.Date',
+                        formatOptions: {style: 'short', 
+                        source: {pattern: 'yyyy-MM-ddTHH:mm:ss.mmm'}}}"/>
+                    <Label design="Bold"  text="{i18n>colunaDataCriacao}"/>
+                    <Input editable="false" value="{
+                        path:'dataNascimento',
+                        type:'sap.ui.model.type.Date',
+                        formatOptions: {style: 'short', 
+                        source: {pattern: 'yyyy-MM-ddTHH:mm:ss.mmm'}}}"/>
+                </form:content>
+            </form:SimpleForm>
+       </VBox>
+    </Page>
+</mvc:View>

@@ -1,0 +1,68 @@
+<mvc:View
+   controllerName="sap.ui.api.jogadores.controller.TelaListaDeJogadores"
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc">
+   <Page title="{i18n>Home.Titulo}">
+				<content>
+					<Table 
+					id="tabela_jogadores"
+					items="{/jogadores}">
+						<headerToolbar>
+							<OverflowToolbar>
+								<content>
+									<Button press=".aoClicarEmAdicionar" type="Accept" icon="sap-icon://add-employee" text="{i18n>page.Adicionar}"></Button>
+									<ToolbarSpacer/>
+									<SearchField maxLength="50" width="30%" placeholder="{i18n>placeholderCampoDeBusca}" search=".aoDigitar"/>
+								</content>
+							</OverflowToolbar>
+						</headerToolbar>
+						<columns>
+							<Column
+							width="3.5rem" >
+								<Text text="{i18n>colunaId}"/>
+							</Column>
+							<Column
+							width="8rem" >
+								<Text text="{i18n>colunaNome}"/>
+							</Column>
+							<Column 
+							width="8rem">
+								<Text text="{i18n>colunaSobrenome}"/>
+							</Column>
+							<Column 
+							width="18.0rem">
+								<Text text="{i18n>colunaEmail}"/>
+							</Column>
+							<Column
+							width="5.5rem"
+							hAlign="Center" > 
+								<Text text="{i18n>colunaElo}"/>
+							</Column>
+							<Column 
+							hAlign="Center">
+								<Text text="{i18n>colunaDataNascimento}"/>
+							</Column>
+							<Column 
+							hAlign="Center">
+								<Text text="{i18n>colunaDataCriacao}"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem type="Navigation" press=".aoClicarNaLinha">
+								<cells>
+									<Text text="{id}"/>
+									<Text text="{nome}"/>
+									<Text text="{sobrenome}"/>
+									<Text text="{email}"/>
+									<Image tooltip="{path: 'elo',formatter:'.formatter.eloLegenda'}" height="32px" src="{path:'elo',formatter:'.formatter.eloImage'}">											
+									</Image>
+									
+									<Text text="{path:'dataNascimento',type:'sap.ui.model.type.Date',formatOptions: {style: 'short', source: {pattern: 'yyyy-MM-ddTHH:mm:ss.mmm'}}}"/>
+									<Text text="{path:'dataCriacao',type:'sap.ui.model.type.Date',formatOptions: {style: 'short', source: {pattern: 'yyyy-MM-ddTHH:mm:ss.mmm'}}}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</Page>
+</mvc:View>

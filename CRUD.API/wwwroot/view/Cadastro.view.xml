@@ -1,0 +1,67 @@
+<mvc:View xmlns:core="sap.ui.core" 
+xmlns:form="sap.ui.layout.form" 
+controllerName="sap.ui.api.jogadores.controller.Cadastro"
+xmlns:mvc="sap.ui.core.mvc"
+xmlns="sap.m" >
+    <Page >
+     <headerContent>
+            <Button press=".aoClicarVoltar"  text="Voltar" icon="sap-icon://nav-back" />
+            <ToolbarSpacer />
+            <Title text="{i18n>Cadastro.Titulo}" textAlign="Initial"></Title>
+            <ToolbarSpacer />
+            <Button press=".aoClicarSalvar" text="{i18n>page.Salvar}" icon="sap-icon://add-employee" type="Accept"/>
+            <Button type="Reject" icon="sap-icon://sys-cancel" text="{i18n>page.Cancelar}"/>
+        </headerContent>
+
+        <VBox >
+            <form:SimpleForm class="" layout="ResponsiveLayout" editable="false" width="60%" >
+                <form:content  >
+
+                    
+                    <Label design="Bold" vAlign="Middle" text="{i18n>colunaNome}"/>
+                    <Input value="{jogador>/nome}" type="Text" maxLength="40" required="true"/>
+                    <Label design="Bold"  text="{i18n>colunaSobrenome}"/>
+                    <Input value="{jogador>/sobrenome}" type="Text" maxLength="40" required="true"/>
+                        <Label design="Bold"  text="{i18n>colunaApelido}"/>
+                            <Input value="{jogador>/apelido}" type="Email" maxLength="256" required="true"/>
+                    <Label design="Bold"  text="{i18n>colunaEmail}"/>
+                    <Input value="{jogador>/email}" type="Email" maxLength="256" required="true"/>
+                    <Label design="Bold"  text="{i18n>colunaElo}"/>
+                    <Select required="true" id="selecionarElo" selectedKey="{jogador>/elo}">
+                        <items>
+                            <core:Item text="" key="" />
+                            <core:Item text="Ferro" key="0" />
+                            <core:Item text="Bronze" key="1" />
+                            <core:Item text="Prata" key="2" />
+                            <core:Item text="Ouro" key="3" />
+                            <core:Item text="Platina" key="4" />
+                            <core:Item text="Diamante" key="5" />
+                            <core:Item text="Mestre" key="6" />
+                            <core:Item text="Grão Mestre" key="7" />
+                            <core:Item text="Desafiante" key="8" />
+                        </items>
+                    </Select>
+                    <Label design="Bold"  text="{i18n>colunaDataNascimento}"/>
+                    <Button 
+                    id="BotaoData"
+                    width="100%"
+                    type="Emphasized"
+                    press=".abrirSeletorData" 
+                    text="{path:'jogador>/dataNascimento',type:'sap.ui.model.type.Date',formatOptions: {style: 'short', source: {pattern: 'yyyy-MM-ddTHH:mm:ss.mmm'}}}" 
+                    icon="sap-icon://appointment-2"/>
+                    
+                    <DatePicker 
+                    value="{jogador>/dataNascimento}"
+                    id="MostrarSeletor" 
+                    hideInput="true"
+                    change=".aoAlterar"
+                    valueFormat="yyyy-MM-ddTHH:mm:ss.mmm"
+                    displayFormat="dd/MM/yyyy"
+                    placeholder="{i18n>Cadastro.BotaoData}"/>
+                    
+                </form:content>
+            </form:SimpleForm>
+        </VBox>
+
+    </Page>
+</mvc:View>
